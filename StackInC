@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int size=10,top=-1,stack[10]; //GLOBAL VARIABLES
+
+void push(int element) // PROGRAM TO ADD AN ELEMENT IN STACK
+{
+    if(top>=size)
+    {
+        printf("Stack overflow\n");
+    }
+    else
+    {
+        top++;
+        stack[top]=element;
+    }
+}
+
+void pop() // PROGRAM TO DELETE AN ELEMENT IN STACK
+{
+    if(top==-1)
+        printf("Stack is empty\n");
+        else
+    {
+        printf("The element popped is %d",stack[top]);
+        top--;
+    }
+}
+
+void display() // PROGRAM TO DISPLAY THE ELEMENTS OF STACK
+{
+
+    if(top!=-1)
+    {
+        for(int i=top;i>=0;i--)
+        {
+            printf("%d \t",stack[i]);
+        }
+    }
+    else
+        printf("Empty Stack\n");
+}
+
+int main()
+{
+    int choice, data;
+
+    while(1)
+    {
+        /* Menu */
+        printf("------------------------------------\n");
+        printf("    STACK IMPLEMENTATION PROGRAM    \n");
+        printf("------------------------------------\n");
+        printf("1. PUSH\n");
+        printf("2. POP\n");
+        printf("3. DISPLAY\n");
+        printf("4. EXIT\n");
+        printf("------------------------------------\n");
+        printf("Enter your choice: ");
+
+        scanf("%d", &choice);
+
+        switch(choice)
+        {
+            case 1:
+                printf("Enter data to push into stack: ");
+                scanf("%d", &data);
+
+                // Push element to stack
+                push(data);
+                break;
+
+            case 2:
+                 pop();
+
+
+                break;
+
+            case 3:
+                display();
+                break;
+
+            case 4:
+                printf("Exiting from app.\n");
+                exit(0);
+                break;
+
+            default:
+                printf("Invalid choice, please try again.\n");
+        }
+
+        printf("\n\n");
+    }
+
+
+    return 0;
+}
+
